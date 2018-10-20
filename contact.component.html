@@ -1,0 +1,79 @@
+<script>
+
+app.controller("contactController", ['$scope', '$http', function ($scope, $http) {
+
+
+        $scope.formData = {
+
+            subject: '',
+            email: '',
+            message: ''
+        };
+        console.log(formData);
+        // process the form
+        $scope.processForm = function () {
+            $http({
+                method: 'POST',
+                url: 'contact.php',
+                data: $scope.formData,
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+            })
+
+
+        };
+
+
+    } ]);
+
+</script>
+
+<div class="contact">
+  <h1 class="contact_text">KONTAKT</h1>
+</div>
+
+<h2 class="headertext">Har jeg vakt din interesse?</h2>
+<h4 class="text">Eller har du en forespørgsel? I så fald er du velkommen til at kontakte mig via nedenstående formular.</h4>
+
+
+
+    <!-- form goes here -->
+<form method="post" (ngSubmit)="processForm()" #myForm="ngForm" (submit)="myForm.reset()">
+
+  <!-- name -->
+
+  <label>Navn</label>
+  <div class="field">
+    <input type="text" name="name" [(ngModel)]="name" minlength="2" required #nameInput="ngModel" class="form-control mb-4">
+
+    <div class="help is-error" *ngIf="nameInput.invalid && nameInput.dirty">
+    Dit navn er påkrævet.
+  </div>
+
+
+</div>
+
+  <!-- email -->
+  <label>E-mail</label>
+  <div class="field">
+    <input type="email" name="email" [(ngModel)]="email" email required #emailInput="ngModel" class="form-control mb-4">
+
+    <div class="help is-error" *ngIf="emailInput.invalid && emailInput.dirty">
+      Har du indtastet en gyldig e-mail?
+    </div>
+
+  </div>
+
+  <!-- message -->
+  <label>Din besked</label>
+  <div class="field">
+    <textarea class="textarea" name="message" [(ngModel)]="message" required #messageInput="ngModel" class="form-control mb-4"></textarea>
+
+    <div class="help is-error" *ngIf="emailInput.invalid && emailInput.dirty">
+        Har du ikke glemt noget?
+      </div>
+
+  </div>
+
+  <button type="submit" class="btn btn-secondary">Send</button>
+
+</form>

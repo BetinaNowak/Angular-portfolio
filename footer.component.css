@@ -1,0 +1,14 @@
+p {
+  position: sticky;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: black;
+  text-align: center;
+  font-size: 20px;
+  margin: 0 auto;
+  font-family: 'Montserrat';
+  font-size: 11px;
+  color: white;
+  padding: 5px;
+}

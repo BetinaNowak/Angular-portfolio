@@ -1,0 +1,55 @@
+
+<div class="about">
+  <h1 class="about_text">CV</h1>
+</div>
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-sm-6">
+      <img width="300" src="Betina024.png">
+    </div>
+
+    <div class="col-sm-6">
+
+      <h3>MULTIMEDIEDESIGN STUDERENDE</h3>
+<p class="description">Som multimediedesign studerende arbejder jeg til dagligt med interaktivt design, digital kommunikation og programmering.
+  I løbet af de 3 semestre har jeg arbejdet tværfagligt med bla. interaktionsudvikling, design og visualisering, dataforståelse, grafisk design og frontend programmering.
+<br>
+Med denne uddannelse får jeg lov til at udfordre mine kreative kompetencer, samt tekniske færdigheder indenfor programmering, hvilket sætter et godt fundament for videre uddannelse.<p>
+
+    </div>
+
+<div class="col-sm">
+  <div *ngFor="let data of testData ; let i = index">
+
+
+<button class="btn"  data-toggle="modal" [attr.data-target]="'#data-' + i">Se kontaktinformation</button>
+
+    <div class="modal fade" [attr.id]="'data-' + i" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{ 'Kontaktinformation' }}</h5>
+        <button class="close" type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+          <div *ngIf="data.Name"> Navn: {{ data.Name }}</div>
+          <div *ngIf="data.Name"> Alder: {{ data.Age }}</div>
+          <div *ngIf="data.Name"> Adresse: {{ data.Adress }}</div>
+          <div *ngIf="data.Name"> Telefon nr.: {{ data.Phone }}</div>
+          <div *ngIf="data.Name"> E-mail: {{ data.Email }}</div>
+        </div>
+
+
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+
+  </div>
+</div>
